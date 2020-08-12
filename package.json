@@ -1,5 +1,5 @@
 {
-  "name": "@ordent/adonis-drive",
+  "name": "@ordentco/adonis-drive",
   "version": "1.0.2",
   "description": "Driver based file system built on top of flydrive",
   "main": "index.js",
@@ -23,8 +23,7 @@
   },
   "keywords": [
     "fs",
-    "aws",
-    "s3"
+    "gcs"
   ],
   "author": "virk",
   "license": "MIT",
