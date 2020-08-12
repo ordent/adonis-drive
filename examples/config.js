@@ -13,7 +13,7 @@ module.exports = {
   | defining a disk name
   |
   */
-  default: "local",
+  default: "gcs",
 
   disks: {
     /*
@@ -25,8 +25,10 @@ module.exports = {
     |
     */
     local: {
-      root: Helpers.tmpPath(),
       driver: "local",
+      config: {
+        root: Helpers.tmpPath(),
+      },
     },
 
     /*
@@ -39,15 +41,20 @@ module.exports = {
     */
     s3: {
       driver: "s3",
-      key: Env.get("S3_KEY"),
-      secret: Env.get("S3_SECRET"),
-      bucket: Env.get("S3_BUCKET"),
-      region: Env.get("S3_REGION"),
+      config: {
+        key: Env.get("S3_KEY"),
+        secret: Env.get("S3_SECRET"),
+        bucket: Env.get("S3_BUCKET"),
+        region: Env.get("S3_REGION"),
+      },
     },
+
     gcs: {
       driver: "gcs",
-      keyFilename: Env.get("GCS_KEYFILENAME"),
-      bucket: Env.get("GCS_BUCKET"),
+      config: {
+        keyFilename: Env.get("GCS_KEY_FILE_NAME"), // path to json file
+        bucket: Env.get("GCS_BUCKET"),
+      },
     },
   },
 };
